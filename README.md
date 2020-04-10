@@ -1,16 +1,5 @@
-[![license](https://img.shields.io/github/license/RedisGraph/redisgraph-py.svg)](https://github.com/RedisGraph/redisgraph-py)
-[![CircleCI](https://circleci.com/gh/RedisGraph/redisgraph-py/tree/master.svg?style=svg)](https://circleci.com/gh/RedisGraph/redisgraph-py/tree/master)
-[![PyPI version](https://badge.fury.io/py/redisgraph.svg)](https://badge.fury.io/py/redisgraph)
-[![GitHub issues](https://img.shields.io/github/release/RedisGraph/redisgraph-py.svg)](https://github.com/RedisGraph/redisgraph-py/releases/latest)
-[![Codecov](https://codecov.io/gh/RedisGraph/redisgraph-py/branch/master/graph/badge.svg)](https://codecov.io/gh/RedisGraph/redisgraph-py)
-[![Known Vulnerabilities](https://snyk.io/test/github/RedisGraph/redisgraph-py/badge.svg?targetFile=requirements.txt)](https://snyk.io/test/github/RedisGraph/redisgraph-py?targetFile=requirements.txt)
-
-[![Mailing List](https://img.shields.io/badge/Mailing%20List-RedisGraph-blue)](https://groups.google.com/forum/#!forum/redisgraph)
-[![Gitter](https://badges.gitter.im/RedisLabs/RedisGraph.svg)](https://gitter.im/RedisLabs/RedisGraph?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
-
-# redisgraph-py
-RedisGraph python client
+# redisgraph-py mod
+A modified version of the RedisGraph python client
 
 
 # Example: Using the Python Client
