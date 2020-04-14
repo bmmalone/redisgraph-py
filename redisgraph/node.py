@@ -1,4 +1,6 @@
-from .util import *
+
+import pandas as pd
+import redisgraph.rg_utils as rg_utils
 
 class Node(object):
     """
@@ -16,10 +18,27 @@ class Node(object):
     def toString(self):
         res = ""
         if self.properties:
-            props = ','.join(key+':'+str(quote_string(val)) for key, val in self.properties.items())
+            props = ','.join(
+                key+':'+str(rg_utils.quote_string(val))
+                    for key, val in self.properties.items() if pd.notnull(val)
+            )
             res += '{' + props + '}'
 
         return res
+
+    def validate(self):
+        """ Validate that the alias, label, and all property names are
+        valid identifiers for Cypher
+
+        See the Neo4j docs for more details: https://neo4j.com/docs/cypher-manual/current/syntax/naming/
+        """
+        rg_utils.validate_cypher_identifier(self.alias)
+        rg_utils.validate_cypher_identifier(self.label)
+
+        for k, v in self.properties.items():
+            rg_utils.validate_cypher_identifier(k)
+
+
 
     def __str__(self):
         res = '('
@@ -28,7 +47,10 @@ class Node(object):
         if self.label:
             res += ':' + self.label
         if self.properties:
-            props = ','.join(key+':'+str(quote_string(val)) for key, val in self.properties.items())
+            props = ','.join(
+                key+':'+str(rg_utils.quote_string(val))
+                    for key, val in self.properties.items() if pd.notnull(val)
+            )
             res += '{' + props + '}'
         res += ')'
 

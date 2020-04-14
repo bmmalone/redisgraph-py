@@ -1,6 +1,7 @@
-from redisgraph import Node
+import pandas as pd
 
-from .util import *
+from .node import Node
+from redisgraph.rg_utils import quote_string
 
 class Edge(object):
     """
@@ -38,7 +39,10 @@ class Edge(object):
         if self.relation:
             res += ":" + self.relation
         if self.properties:
-            props = ','.join(key+':'+str(quote_string(val)) for key, val in self.properties.items())
+            props = ','.join(
+                key+':'+str(quote_string(val))
+                    for key, val in self.properties.items() if pd.notnull(val)
+            )
             res += '{' + props + '}'
         res += ']->'
 
